@@ -1,10 +1,8 @@
-
 在 [样式布局分享-基于frozen.js的移动OA](http://shijiajie.com/2016/03/13/frontend-mobileoa-demo/) 文章中，用了到第三方组件 tab.js(带菜单的横屏滑动插件)，其兼容性很差，进行优化后，已兼容全平台（且支持IE6+）。
 
 ![](http://7xkhp9.com1.z0.glb.clouddn.com/blog/javascript-tabjs/1.jpg)
 
-- [tab.js 百度网盘 下载地址](http://pan.baidu.com/s/1bpK9Sr9)
-- [tab.js GitHub Clone 地址](https://github.com/stone0090/code-hodgepodge/tree/master/web/tab) 
+- [tab.js GitHub Clone 地址](https://github.com/stone0090/s-fontend/tree/master/me/tab) 
 
 一直听说过IE6~IE9浏览器的兼容性问题是深坑，这次终于有所体会，就本次优化tab.js而言，如果不对IE6~IE9进行兼容，工作量可以减少一倍。
 
@@ -64,7 +62,7 @@ target = event.target || event.srcElement;
 
 ### event.preventDefault （不支持IE6~IE9）
 > 说明：如果事件对象的cancelable属性为true，则该方法可以取消事件的默认动作，但并不取消事件的冒泡行为。（以下为兼容方法）
-``` javascript  
+``` javascript
 // 以下为兼容写法
 event.preventDefault ? event.preventDefault() : (event.returnValue = false);
 ```
@@ -85,4 +83,4 @@ var pageX = (touches.pageX) ? touches.pageX : e.clientX + (document.documentElem
 var pageY = (touches.pageY) ? touches.pageY : e.clientY + (document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop);
 ```
 
-欢迎大家来 [石佳劼的博客](http://shijiajie.com) 和我交流，在 [这里](http://shijiajie.com/2016/05/31/javascript-tabjs/#ds-thread)  留下您宝贵建议。
+欢迎关注微信公众号「劼哥舍」，老斯基带你飙车。
