@@ -3,12 +3,12 @@
  * @github https://github.com/stone0090/code-hodgepodge/tree/master/web/tab
  * @version 1.0.0
  * ===================================================
- * opts.wrap    tab外围容器/滑动事件对象(id选择器)
- * opts.menu    tab菜单容器/点击事件对象(id选择器)
- * opts.content tab内容容器/滑动切换对象(id选择器) 
- * opts.index   指定首次显示的菜单及内容(默认为0)
- * opts.duration    滑动的速度(默认为300，单位毫秒)
- * opts.callback    点击菜单或滑动时的回调(需和菜单数量一致)
+ * opts.wrap            tab外围容器/滑动事件对象(id选择器)
+ * opts.menu            tab菜单容器/点击事件对象(id选择器)
+ * opts.content         tab内容容器/滑动切换对象(id选择器) 
+ * opts.index           指定首次显示的菜单及内容(默认为0)
+ * opts.duration        滑动的速度(默认为300，单位毫秒)
+ * opts.callback        点击菜单或滑动时的回调(需和菜单数量一致)
  * opts.selectedClass   被选中菜单的类名(默认为'current')
  * opts.useDefualtCSS   是否使用默认样式(默认为false) 
  * ===================================================
@@ -254,7 +254,8 @@
         _initClass: function () {
             if (this.useDefualtCSS) {
                 var width = 100 / this.length;
-                document.write('<style>' +
+                document.write(
+                    '<style>' +
                     'html, body { margin: 0; padding: 0; overflow: hidden; } \r\n' +
                     '.tab-content { position: relative; } \r\n' +
                     '.tab-content > div { float: left; } \r\n' +
@@ -276,13 +277,15 @@
 
         _initSize: function () {
             this.width = document.documentElement.clientWidth || document.body.clientWidth;
-            this.height = document.documentElement.clientHeight || document.body.clientHeight;
             this.content.style.width = this.length * this.width + 'px';
-            this.content.style.height = this.height + 'px';
+            if (this.useDefualtCSS) {
+                this.height = document.documentElement.clientHeight || document.body.clientHeight;
+                this.content.style.height = this.height + 'px';
+            }
             for (var i = 0; i < this.length; i++) {
                 this.contents[i].style.width = this.width + 'px';
             }
-            this._translate();
+            this._translate(0);
         },
 
         _resize: function () {
