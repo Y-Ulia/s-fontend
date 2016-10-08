@@ -1,2 +1,2 @@
-# library-js
-in common use js lib.
+# s-fontend
+自己常用的前端方法整理，和前端主流框架。
