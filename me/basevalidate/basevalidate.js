@@ -18,7 +18,7 @@
 
         // 检测「字符串」
         isString: function(value) {
-            return typeof value === 'string';
+            return typeof value === 'string' || value instanceof String;
         },
 
         // 检测「数字」
